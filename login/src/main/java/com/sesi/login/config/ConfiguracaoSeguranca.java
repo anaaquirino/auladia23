@@ -27,7 +27,8 @@ public class ConfiguracaoSeguranca {
 		http
 			.authorizeHttpRequests((authorize)->
 				authorize
-					.requestMatchers("/login", "/registar").permitAll()
+					.requestMatchers("/login", "/registar", "/h2-console/**").permitAll()
+					.requestMatchers("css/**").permitAll()
 					.anyRequest().authenticated()
 					)
 			.formLogin((form)->
